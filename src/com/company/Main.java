@@ -1,33 +1,28 @@
 package com.company;
 
 public class Main {
+    //constants
+    public static final int IS_PART_TIME = 1;
+    public static final int IS_FULL_TIME = 2;
+    public static final int EMP_RATE_PER_HOUR = 20;
 
     public static void main(String[] args) {
-        //constants
-        int is_full_time = 1;
-        int is_part_time=2;
-        int is_absent = 0;
-        int emp_hr = 16;
-        int Wage_per_hr = 20;
-
+        //variables
+        int empHrs = 0;
+        int empWage = 0;
         //computation
-        double empCheck = Math.floor(Math.random() * 10) % 3;
-        if (empCheck == 1) {
-            System.out.println("EMPLOYEE IS FULL_TIME");
-            System.out.println("Emp hour");System.out.println(emp_hr=16);
-        }else if(empCheck==2){
-            System.out.println("EMPLOYEE IS PART_TIME");
-            System.out.println("Emp hour");System.out.println(emp_hr=8);
-
+        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+        switch (empCheck) {
+            case IS_FULL_TIME:
+                empHrs = 8;
+                break;
+            case IS_PART_TIME:
+                empHrs = 4;
+                break;
+            default:
+                empHrs = 0;
         }
-        else{
-            System.out.println("EMPLOYEE IS ABSENT");
-            System.out.println("Emp hour");System.out.println(emp_hr = 0);
-        }
-
-        int dailywage = (emp_hr * Wage_per_hr);
-        //printing the Emp Daily Wage
-        System.out.println("Emp Daily Wage");
-        System.out.println(dailywage);
+        empWage = empHrs * EMP_RATE_PER_HOUR;
+        System.out.println("Emp Wage: " + empWage);
     }
 }
